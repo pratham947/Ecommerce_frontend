@@ -1,0 +1,26 @@
+.login-container {
+  width: 500px;
+}
+.login-container input,.login-container button {
+  display: block;
+  width: 90%;
+  margin: auto;
+  outline: none;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.247);
+  border-radius: 5px;
+}
+.login-container button{
+    background-color: #1cb803;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+@media (max-width:710px) {
+    .login-container{
+        width: 90%;
+    }
+}
