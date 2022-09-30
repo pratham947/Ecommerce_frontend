@@ -1,0 +1,109 @@
+.myordercontainer{
+    width: 100vw;
+    height: 100vh;
+    padding: 30px 20px;
+}
+.ordered-items-div{
+    width: 70%;
+    margin:0px auto;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    border: 1px solid black;
+}
+.ordered-items-div div{
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+.ordered-items-div div:first-child{
+    color: red;
+    font-size: 15px;
+    cursor: pointer;
+    flex:2;
+}
+.ordered-items-heading{
+    width: 70%;
+    display: flex;
+    margin:20px auto;
+    background-color: tomato;
+}
+.ordered-items-heading p{
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    border-right: 1px solid black;
+}
+.ordered-items-heading p:first-child{
+    flex:2;
+}
+.product-status-link{
+    text-decoration: none !important;
+    color: red;
+}
+.orderName p{
+    font-size:17px;
+}
+.pending{
+    color: tomato;
+    font-weight: bold;
+}
+.completed{
+    color: green;
+    font-weight: bold;
+}
+.no-order-found{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+.no-order-found p{
+    font-size: 30px;
+}
+@media (max-width:1150px){
+    .ordered-items-div{
+        width: 80%;
+    }
+    .order-status p{
+        font-size:17px;
+    }
+    .ordered-items-heading{
+        width:80%;
+    }
+}
+@media (max-width:850px) {
+    .ordered-items-div{
+        width: 90%;
+    }
+    .ordered-items-heading{
+        width:90%;
+    }
+}
+@media (max-width:750px){
+    .ordered-items-heading{
+        flex-direction: column;
+    }
+    .ordered-items-heading p{
+        text-align: left;
+        border-bottom: 1px solid white;
+        font-size: 20px;
+        color: white;
+        padding: 10px 20px;
+    }
+    .ordered-items-div{
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid black;
+    }
+    .ordered-items-div div{
+        padding: 10px;
+        font-size: 20px;
+        border:none;
+    }
+}

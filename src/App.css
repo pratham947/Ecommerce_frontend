@@ -1,37 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;0,400;1,300&family=Nunito+Sans:wght@300;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "poppins", "Josefin Sans";
+  scroll-behavior: smooth;
 }
-.container {
-  width: 1200px;
+
+body {
+  overflow-x: hidden;
+}
+
+/* Admin side  */
+
+.dashboard-container {
   display: flex;
-  /* background-color: black; */
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
 }
-@media (max-width:1250px ) {
-  .container{
-    width: 1000px;
+
+.dashbraod-left-container {
+  flex: 1;
+}
+
+.dashbraod-right-container {
+  padding: 20px;
+  flex: 3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* remove text decoratio  in Link react router dom  */
+.remove-decoration{
+  text-decoration: none !important;
+}
+.font-class{
+  font-size: 20px;
+  margin:30px 0px;
+}
+.mysuccess-class{
+  color: green;
+  font-weight: bold;
+}
+@media (max-width: 1200px) {
+  .dashbraod-left-container {
+    flex: 0.5;
+  }
+
+  .dashbraod-right-container {
+    padding: 20px;
+    flex: 3;
   }
 }
 
-@media (max-width:1020px) {
-  .container{
-    width: 900px;
+@media (max-width: 1050px) {
+  .dashboard-container {
+    display: block;
   }
-}
-@media (max-width:925px) {
-  .container{
-    width: 800px;
+  .sidebar-link {
+    margin: 10px auto !important;
   }
-}
-@media (max-width:830px) {
-  .container{
-    width: 700px;
+  .sidebar-container {
+    min-height: 46vh !important;
+    max-height: auto;
+    border-right: 1px solid black;
   }
 }

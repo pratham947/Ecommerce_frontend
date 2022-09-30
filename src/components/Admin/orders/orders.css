@@ -1,0 +1,65 @@
+.mainOrder-div {
+    padding: 20px 0px;
+}
+
+.mainOrder-heading {
+    display: flex;
+    background-color: tomato;
+    padding: 10px;
+    margin: 10px 0px;
+    color: white;
+}
+
+.mainOrder-heading p {
+    flex: 1;
+}
+
+.mainOrder-heading p:first-child {
+    flex: 2;
+}
+
+.mainOrder-items {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.mainOrder-items div {
+    flex: 1;
+}
+
+.mainOrder-items div:first-child {
+    flex: 2;
+}
+
+.mainOrder-status {
+    color: tomato;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+@media (max-width:800px) {
+    .mainOrder-items {
+        display: block;
+        border: 1px solid black;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .mainOrder-items div {
+        padding: 10px 0px;
+    }
+
+    .mainOrder-heading p:first-child {
+        flex: 1;
+    }
+}
+
+@media (max-width:500px) {
+    .mainOrder-heading {
+        display: block;
+    }
+
+    .mainOrder-heading p {
+        padding: 10px 0px;
+    }
+}

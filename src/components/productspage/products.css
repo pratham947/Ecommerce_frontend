@@ -1,0 +1,151 @@
+.search-logo {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-logo h1 {
+    color: #2874f0;
+}
+
+.homelink {
+    text-decoration: none;
+}
+
+.search-logo input {
+    padding: 10px;
+    width: 21%;
+    margin-right: 61px;
+    font-size: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s all;
+}
+
+.search-logo input:focus {
+    border: 3px solid #2874f0;
+}
+
+.search-logo input::placeholder {
+    color: black;
+}
+
+.productscontainer {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    flex-wrap: wrap;
+    margin: 100px auto;
+}
+.productsheading {
+    border-bottom: 2px solid grey;
+    width: 20vw;
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+
+}
+
+.productsnotfound {
+    text-align: center;
+    width: 100%;
+}
+/* making filter  */
+.filter-container {
+    padding: 44px;
+    position: absolute;
+}
+.categories{
+    margin: 19px 0px;
+    font-size: 20px;
+    border-bottom: 1px solid whitesmoke;
+}
+.filter-container input {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.filter-divs-category{
+    display: flex;
+    align-items: center;
+}
+.filter-divs-category label{
+    margin-left: 10px;
+}
+.filter-price input{
+    padding:10px;
+    margin:20px 0px;
+    outline:none;
+}
+.filter-price{
+    display:flex;
+    flex-direction: column;
+}
+.filter-price input{
+    width:105px;
+}
+.price-low-to-high{
+    position: relative;
+}
+.filter-by-price-bar{
+    position:absolute;
+    right: 150px;
+    padding: 10px;
+    outline: none;
+}
+.filter-by-price-bar option{
+    padding:10px;
+    text-transform: capitalize;
+}
+@media (max-width:1090px) {
+    .productsheading {
+        width: 30vw;
+    }
+}
+
+@media (max-width:700px) {
+    .homelink h1 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:600px) {
+    .productsheading {
+        width: 40vw;
+    }
+
+    .search-logo input {
+        width: 30%;
+    }
+}
+
+@media (max-width:500px) {
+    .search-logo {
+        display: initial;
+    }
+
+    .search-logo h1 {
+        margin: 0px 20px;
+    }
+
+    .search-logo input {
+        margin: 30px 20px;
+        width: 90%;
+
+    }
+
+}
+
+@media (max-width:440px) {
+    .productsheading {
+        width: 50vw;
+        font-size: 25px;
+    }
+}
+@media (max-width:900px){
+    .filter-container{
+        position:inherit
+    }
+}

@@ -1,0 +1,40 @@
+.profileimage {
+    width: 60px;
+    height: 60px;
+    object-fit:cover;
+    border-radius: 50%;
+    top:8px;
+    position: absolute;
+    right: 26px;
+    cursor: pointer;
+    z-index: 11;
+    margin-top: 9px;
+}
+
+.optionslinks {
+    width:100%;
+    color:white !important;
+    padding:10px;
+    margin-top:20px;
+    transition:0.3s;
+    text-align: center;
+}
+.optionslinks:hover{
+    color:#2874f0;
+    background-color: rgb(216, 208, 208);
+}
+.links{
+    text-decoration: none !important;
+    font-size: 20px;
+    text-transform: uppercase !important;
+    width: 100% !important;
+    color:white !important;
+    margin: 0px auto !important;
+    cursor: pointer;
+}
+.links:hover{
+    color: black !important;
+}
+.MuiPaper-root{
+    background-color: #131A22 !important;
+}

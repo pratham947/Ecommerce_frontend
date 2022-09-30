@@ -1,0 +1,56 @@
+.mainreview-review-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin:50px 0px;
+}
+.productid-review-container{
+    background-color:tomato;
+    padding:10px;
+    width: 70%;
+    text-align: center;
+}
+.productid-review-container input{
+    width:90%;
+    padding: 10px;
+    font-size: 15px;
+    outline:none;
+}
+.mainreview-product-review{
+    width:100%;
+    margin-top:50px;
+}
+.main-review-heading{
+    display:flex;
+    background-color: tomato;
+    padding:10px;
+    color:white;
+    width:100%;
+}
+.main-review-heading p{
+    flex:1;
+    text-align: center;
+
+}
+.mainreview-container{
+    padding: 10px;
+    margin-top: 20px;
+}
+.mainreview-items{
+    display:flex;
+    align-items: center;
+}
+.mainreview-items div{
+    flex:1;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+.del-review-icon{
+    font-size: 20px;
+}
+.no-review-found{
+    font-size:20px;
+    text-align:center;
+    margin:30px 0px;
+}

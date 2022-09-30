@@ -1,0 +1,29 @@
+.reviewpage{
+    display:flex;
+    align-items: flex-start;
+}
+.userreviews{
+    display: flex;
+    justify-content: space-between;
+    margin:10px 0px;
+    align-items: flex-start;
+    width: 100%;
+}
+.userreviews-first-div{
+    display:flex;
+    align-items: flex-start;
+}
+.userreviews img{
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.userreviews p{
+    margin:0px 10px;
+    font-size:20px;
+}
+.delete-review{
+    font-size:25px;
+    cursor:pointer;
+}

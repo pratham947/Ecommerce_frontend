@@ -1,0 +1,38 @@
+/* .loading{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: grid;
+    place-items: center;
+}
+.loading div{
+    width: 10vw;
+    height: 20vh;
+    border-bottom: 5px solid #2874f0;
+    border-radius: 50%;
+    animation: loadingstate 800ms linear infinite;
+}
+@keyframes loadingstate{
+    to{
+        transform: rotateZ(-360deg);
+    }
+}
+
+@media (max-width:500px){
+    .loading div{
+        width:30vw;
+        height: 24vh;
+    }
+}
+@media (max-width:400px){
+    .loading div{
+        height:14vh;
+    }
+} */
+.loading{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

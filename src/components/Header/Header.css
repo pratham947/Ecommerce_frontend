@@ -1,0 +1,173 @@
+.headerwrapper {
+    height: 100vh;
+    /* background-color: #2874f0; */
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-image: url("../../images/pexels-dhiraj-jain-12737613.jpg");
+    width: 100%;
+}
+
+.headerwrapper::after {
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    clip-path: polygon(100% 70%, 0% 100%, 100% 100%);
+    max-width: 100%;
+
+}
+.headercontainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    align-items: center;
+}
+
+.headercontainer h1 {
+    color: white;
+    font-size: 45px;
+}
+
+.headersearch {
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+.headermenu {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0;
+    background-color: white;
+    transition: 0.3s all;
+}
+
+.headerlinks {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerlinksinner {
+    text-decoration: none !important;
+    font-size: 40px;
+    margin: 20px 0px;
+    color: black;
+    transition: 0.3s all;
+}
+
+.headerlinksinner:hover {
+    color: red;
+}
+
+.closemenu {
+    margin: 20px 70px;
+    font-size: 50px;
+    cursor: pointer !important;
+}
+
+.headercontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.headercontent h3 {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.scrollbtn {
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin: 20px 0px;
+}
+
+.productheading {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    width: 30%;
+    margin: 0px auto;
+    margin-bottom: 30px;
+}
+
+.menu-selector {
+    font-size: 60px;
+}
+
+@media (max-width:850px) {
+    .headercontainer h1 {
+        font-size: 30px;
+    }
+
+    .menu-selector {
+        font-size: 40px;
+    }
+
+    .headersearch {
+        display: none;
+    }
+}
+
+@media (max-width:520px) {
+    .headercontainer {
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width:500px) {
+    .site-name {
+        display: none;
+    }
+
+    .closemenu {
+        margin: 20px 30px;
+        font-size: 30px;
+        cursor: pointer !important;
+    }
+
+    .headerlinksinner {
+        font-size: 40px;
+    }
+}
+
+@media (max-width:470px) {
+    .headerlinksinner {
+        font-size: 30px;
+    }
+
+}
+@media (max-width:460px) {
+    .productheading {
+        margin: 0px auto;
+        margin-bottom: 30px;
+        width: 70%;
+    }
+}
+
+@media (max-width:400px){
+    .headerwrapper{
+    background-image: url("../../images/myntra.webp");
+
+    }
+}
