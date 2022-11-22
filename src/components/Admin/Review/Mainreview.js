@@ -3,7 +3,7 @@ import "./review.css";
 import { MdDelete } from "react-icons/md";
 import { useEffect } from "react";
 import productcontext from "../../../context/Productcontext";
-import { toastSuccess } from "../../toast/Toast";
+import ToastContainer, { toastSuccess } from "../../toast/Toast";
 const Mainreview = () => {
   const [productid, setProductid] = useState(" ");
   const [reviews, setReviews] = useState();
@@ -12,7 +12,6 @@ const Mainreview = () => {
     const getReviews = async () => {
       if (productid.length >= 24) {
         const data = await getProductReview(productid);
-        console.log(data);
         setReviews(data.reviews.reverse());
       } else {
         setReviews();
@@ -22,7 +21,6 @@ const Mainreview = () => {
   }, [productid]);
   const deleteReview = async (productId, reviewId) => {
     const data = await deleteReviewAdmin(productId, reviewId);
-    console.log(data);
     toastSuccess(data.message);
   };
   return (

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { toastSuccess } from "../../toast/Toast";
 import token from "../../layout/token";
-import Loader from "../../loader/Loader";
 const Mainorder = () => {
   const { getallorders, deleteOrderAdmin } = useContext(productcontext);
   const navigate = useNavigate();
@@ -14,12 +13,14 @@ const Mainorder = () => {
   useEffect(() => {
     const getOrders = async () => {
       const { data } = await getallorders(token);
+      console.log(data);
       setOrders(data.reverse());
     };
     getOrders();
   }, []);
   const editOrderAdmin = (mainorder,order) => {
     order.shippingInfo=mainorder.shippingInfo;
+    order.shippingInfo.Name=mainorder.Name
     navigate("/admin/order/editorder", { state: {order} });
   };
   const deleteorder = async (mainorder, order) => {
@@ -33,7 +34,7 @@ const Mainorder = () => {
       <div className="mainOrder-div"> 
         <h1 className="text-center">ALL ORDERS</h1>
         <div className="mainOrder-heading">
-          <p>Order Id</p>
+          <p>Billing-user-name</p>
           <p>Status</p>
           <p>Order qty</p>
           <p>Amount</p>
@@ -44,8 +45,8 @@ const Mainorder = () => {
             ? Orders.map((singleorder) =>
                 singleorder.orderedItems.map((order) => (
                   <div className="mainOrder-items">
-                    <div className="mainOrder-productId">
-                      <p>{order._id}</p>
+                    <div className="mainOrder-Billing-Name">
+                      <p>{singleorder.Name}</p>
                     </div>
                     <div className="mainOrder-status">
                       <p className="mainOrder-status">{order.status}</p>

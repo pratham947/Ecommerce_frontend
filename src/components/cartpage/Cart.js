@@ -20,17 +20,20 @@ const Cart = () => {
     totalwithgst,
     setTotalwithgst,
     validatePromo,
+    addPromoCart,
   } = useContext(productcontext);
   const navigate = useNavigate();
   const [code, setCode] = useState();
   const [promocodeprice, setPromocodeprice] = useState();
   const [productname, setproductname] = useState();
+  const [carttotal, setCarttotal] = useState()
   useEffect(() => {
     const cartItems = async () => {
       const data = await getCartItems(token);
       if (data.success) {
-        setCart(data.items);
+        setCart(data.items.Products);
         Maketotal(data.items);
+        setCarttotal(data.items.carttotal)
       } else {
         setCart();
       }
@@ -39,28 +42,25 @@ const Cart = () => {
   }, []);
   const DeleteItems = async (product) => {
     const data = await removeItems(token, product.productId);
-    setCart(data.items);
+    setCart(data.items.Products);
     Maketotal(data.items);
   };
-  const Maketotal = (items) => {
-    let totalprice = 0;
-    items.forEach((item) => {
-      totalprice += item.actualPrice * Number(item.quantity);
-    });
-    setTotal(totalprice);
-    setGstprice(Math.floor((15 / 100) * totalprice));
-    setTotalwithgst(totalprice + (15 / 100) * totalprice);
+  const Maketotal = (cart) => {
+    setTotal(cart.carttotal);
+    setGstprice(Math.floor((15 / 100) * cart.carttotal));
+    setTotalwithgst(cart.carttotal + (15 / 100) * cart.carttotal);
   };
   const proccedorder = () => {
-    navigate("/order/shipping", { state: total });
+    navigate("/order/shipping");
   };
   // promo code realted
-  const validatePromoCodeDiscount = (discount) => {
-    let reducedprice = total - (discount / 100) * total;
+  const validatePromoCodeDiscount = async (discount) => {
+    let reducedprice = carttotal - (discount / 100) * carttotal;
+    await addPromoCart(token, reducedprice);
     setTotal(Math.floor(reducedprice));
     setGstprice(Math.floor((15 / 100) * reducedprice));
     setTotalwithgst(Math.floor(reducedprice + (15 / 100) * reducedprice));
-  };
+  }; 
   const checkPromo = async () => {
     if (code && code.length > 2) {
       const data = await validatePromo(code, token);
@@ -150,7 +150,7 @@ const Cart = () => {
             onClick={() => checkPromo()}
           >
             Add
-          </button> 
+          </button>
         </div>
         <div>
           {promocodeprice && (

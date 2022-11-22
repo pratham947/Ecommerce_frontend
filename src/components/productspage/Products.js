@@ -149,7 +149,7 @@ const Products = () => {
                 onChange={(e) => setFilterlastprice(e.target.value)}
                 placeholder="to"
               />
-              <button onClick={() => filterPrice()}>Filter</button>
+              <button onClick={() => filterPrice()} className="filter-btn">Filter</button>
             </div>
           </div>
           {selectedcategory !== "all" ? (

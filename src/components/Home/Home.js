@@ -8,11 +8,11 @@ import Loader from '../loader/Loader'
 const Home = () => {
   const [loading, setLoading] = useState(true)
   const [products, setproducts] = useState([])
+  
   const { getallproducts } = useContext(productcontext)
   useEffect(() => {
     const allproducts = async () => {
       const data = await getallproducts(4);
-      console.log(data);
       if (data.success === true) {
         setproducts(data.product)
         setLoading(false)

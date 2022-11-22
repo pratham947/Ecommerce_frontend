@@ -187,6 +187,10 @@ const Productstate = (props) => {
     const { data } = await axios.post(`${url}/api/cart/getitems`, { token });
     return data;
   };
+  const addPromoCart =async(token,cartprice) =>{
+    const {data}=await axios.post(`${url}/api/cart/addpromocart`,{token,cartprice})
+    return data;
+  }
   // order related
   const addOrder = async (token, items) => {
     const { data } = await axios.post(`${url}/api/order/addorder`, {
@@ -419,6 +423,7 @@ const Productstate = (props) => {
           addItems,
           removeItems,
           getCartItems,
+          addPromoCart,
           gstprice,
           setGstprice,
           totalwithgst,

@@ -29,6 +29,7 @@
 
 .mainOrder-items div:first-child {
     flex: 2;
+    font-size: 20px;
 }
 
 .mainOrder-status {

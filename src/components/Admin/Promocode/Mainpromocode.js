@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./promocode.css";
 import { MdDelete } from "react-icons/md";
 import productcontext from "../../../context/Productcontext";
-import { toastError, toastSuccess } from "../../toast/Toast.js";
+import ToastContainer, { toastError, toastSuccess } from "../../toast/Toast.js";
 const Mainpromocode = () => {
   const { getAllPromo, addPromo, deletePromo, updatePromo } =
     useContext(productcontext);
@@ -19,9 +19,20 @@ const Mainpromocode = () => {
   }, []);
   const addCode = async () => {
     if(mycode && discount){
-      const data = await addPromo(mycode, discount);
-      if (data.success) {
-        toastSuccess(data.message);
+      if(discount<=100){
+        const data = await addPromo(mycode, discount);
+        if (data.success) {
+          setCodes([...codes,data.promo])
+          toastSuccess(data.message);
+          setMycode("")
+          setDiscount("")
+        }
+        else{
+          toastError(data.message)
+        }
+      }
+      else{
+        toastError("Discount cannot greater than 100%")
       }
     }
     else{
@@ -47,11 +58,13 @@ const Mainpromocode = () => {
         <input
           type="text"
           placeholder="Enter code"
+          value={mycode}
           onChange={(e) => setMycode(e.target.value)}
         />
         <input
-          type="tel"
+          type="number"
           placeholder="Enter discount in number"
+          value={discount}
           onChange={(e) => setDiscount(e.target.value)}
         />
         <button
@@ -113,6 +126,7 @@ const Mainpromocode = () => {
           <p className="text-center font-class">Loading...</p>
         )}
       </div>
+      <ToastContainer position="bottom-center" closeOnClick />
     </div>
   );
 };

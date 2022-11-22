@@ -8,7 +8,7 @@ import "./productpage.css";
 import Reviewcard from "../Reviewcard/Reviewcard";
 import { Rating } from "@material-ui/lab";
 import Loader from "../loader/Loader";
-import { toastError, toastSuccess } from "../toast/Toast";
+import ToastContainer, { toastError, toastSuccess } from "../toast/Toast";
 import token from "../layout/token";
 const Productpage = () => {
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ const Productpage = () => {
         toastError("please give ratings or comment");
       }
     } else {
-      toastError("Please login to create review");
+      navigate("/login")
     }
   };
   // function for adding and removing products in the cart
@@ -242,6 +242,7 @@ const Productpage = () => {
           </div>
         </>
       )}
+      {/* <ToastContainer position="bottom-center" closeOnClick /> */}
     </>
   );
 };

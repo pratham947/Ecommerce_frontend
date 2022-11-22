@@ -17,7 +17,7 @@ const Singleorder = () => {
   const [shippingInfo, setShippingInfo] = useState();
   const [createdat, setCreatedat] = useState();
   const [delieverydate, setDelieverydate] = useState();
-  const [delieveredtime, setDelieveredtime] = useState()
+  const [delieveredtime, setDelieveredtime] = useState();
   useEffect(() => {
     const getmyorder = async () => {
       const data = await getSingleOrder(token, params.id);
@@ -31,9 +31,11 @@ const Singleorder = () => {
         setDelieverydate(
           moment(parseddate, "DD-MM-YYYY").add(4, "days").format("DD/MM/YYYY")
         );
-        if(data.order.status==="Delievered"){
-          const date=String(new Date(Number(data.order.statustime)).toLocaleString())
-          setDelieveredtime(date)
+        if (data.order.status === "Delievered") {
+          const date = String(
+            new Date(Number(data.order.statustime)).toLocaleString()
+          );
+          setDelieveredtime(date);
         }
       }
     };
@@ -56,7 +58,11 @@ const Singleorder = () => {
     <div className="main-order-container">
       <div className="single-order-container">
         <div className="singleOrder-productid">
-          <p>{singleorder.productId}</p>
+          <p
+            style={{ color: orderstatus === "Delievered" ? "green" : "tomato" }}
+          >
+            {singleorder.productId}
+          </p>
         </div>
         <div className="singleOrder-information">
           <div className="singleOrder-img">
@@ -78,10 +84,7 @@ const Singleorder = () => {
             <WatchLaterIcon
               className="orderStatus-icon"
               style={{
-                color:
-                  orderstatus === "Processing" || orderstatus === "Delievered"
-                    ? "tomato"
-                    : "intial",
+                color: orderstatus === "Processing" ? "tomaoto" : "green",
               }}
             />
             <div className="divider"></div>
@@ -89,17 +92,14 @@ const Singleorder = () => {
               className="orderStatus-icon"
               style={{
                 color:
-                  orderstatus === "OutForDelievery" ||
-                  orderstatus === "Delievered"
-                    ? "tomato"
-                    : "intial",
+                  orderstatus === "OutForDelievery" ? "tomaoto" : "initial",
               }}
             />
             <div className="divider"></div>
             <WhereToVoteIcon
               className="orderStatus-icon"
               style={{
-                color: orderstatus === "Delievered" ? "tomato" : "intial",
+                color: orderstatus === "Delievered" ? "green" : "initial",
               }}
             />
           </div>
@@ -110,7 +110,15 @@ const Singleorder = () => {
           <div className="singleOrder-shipping-information">
             <p>Packed From : New york</p>
             <p>Delievering to: {shippingInfo.adress}</p>
-            <p className={`${orderstatus === "Delievered"?"font-class mysuccess-class" : "mysingleorder-status"}`}>Status: {orderstatus}</p>
+            <p
+              className={`${
+                orderstatus === "Delievered"
+                  ? "font-class mysuccess-class"
+                  : "mysingleorder-status"
+              }`}
+            >
+              Status: {orderstatus}
+            </p>
             {orderstatus !== "Delievered" ? (
               <div>
                 <p>Ordered at : {createdat && createdat} </p>
@@ -124,8 +132,16 @@ const Singleorder = () => {
               </div>
             ) : (
               <div>
-                <p className={`${orderstatus === "Delievered"?"font-class mysuccess-class" : "initial"}`}>Success: true</p>
-                <p>Delievery time : {delieveredtime && delieveredtime} </p>
+                <p
+                  className={`${
+                    orderstatus === "Delievered"
+                      ? "font-class mysuccess-class"
+                      : "initial"
+                  }`}
+                >
+                  Success: true
+                </p>
+                <p>Delievered time : {delieveredtime && delieveredtime} </p>
               </div>
             )}
           </div>

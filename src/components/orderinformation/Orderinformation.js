@@ -18,11 +18,8 @@ const Orderinformation = () => {
     addOrder,
     updateShipping,
   } = useContext(productcontext);
-  const location=useLocation();
-  const producttotal=location.state;
   const navigate = useNavigate();
   const [billingname, setBillingname] = useState();
-  const [information, setinformation] = useState();
   const [adress, setAdress] = useState();
   const [city, setCity] = useState();
   const [pincode, setPincode] = useState();
@@ -30,7 +27,6 @@ const Orderinformation = () => {
   const [phoneNo, setPhoneNo] = useState();
   const [state, setState] = useState();
   const [cartOrders, setCartOrders] = useState();
-  const [shippingInfo, setShippingInfo] = useState();
   const shippingobj = {
     token,
     adress,
@@ -43,9 +39,8 @@ const Orderinformation = () => {
   useEffect(() => {
     const getItems = async () => {
       const data = await getCartItems(token);
-      console.log(data.items);
-      setCartOrders(data.items);
-      Maketotal();
+      setCartOrders(data.items.Products);
+      setTotal(Math.floor(data.items.carttotal));
     };
     getItems();
   }, []);
@@ -62,10 +57,10 @@ const Orderinformation = () => {
     };
     shippingInformation();
   }, []);
-  const Maketotal = () => {
-    setTotal(Math.floor(producttotal));
-    setGstprice(Math.floor((15 / 100) * producttotal));
-    setTotalwithgst(Math.floor(producttotal + (15 / 100) * producttotal));
+  const Maketotal = (total) => {
+    Maketotal(total);
+    setGstprice(Math.floor((15 / 100) * total));
+    setTotalwithgst(Math.floor(total + (15 / 100) * total));
   };
   // add order
   const addUserOrder = async () => {

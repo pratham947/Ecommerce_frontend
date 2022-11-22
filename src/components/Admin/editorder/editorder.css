@@ -8,6 +8,7 @@
 .mainEditOrder-shipping-informtion p {
   font-size: 20px;
   margin: 20px 0px;
+  text-transform: capitalize;
 }
 .mainOrder-shipping-status select {
   margin: 20px 0px;
@@ -47,3 +48,4 @@
     width: 100%;
   }
 }
+

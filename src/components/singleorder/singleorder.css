@@ -61,7 +61,10 @@
     font-family: "poppins";
     color: white;
 }
-
+.mysingleorder-status{
+    color:tomato;
+    font-weight: bold;
+}
 
 @media (max-width:850px){
     .singleOrder-img img{
@@ -85,7 +88,9 @@
         text-align: center;
     }
 }
-.mysingleorder-status{
-    color:tomato;
-    font-weight: bold;
+
+@media (max-width:450px){
+    .singleOrder-shipping-information{
+        padding: 20px;
+    }
 }

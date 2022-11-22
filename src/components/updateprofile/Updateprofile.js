@@ -52,7 +52,7 @@ const Updateprofile = () => {
     }
 
     return (
-        <div>
+        <div> 
             {
                 user && <>
                     <div className='updateprofile-container'>
